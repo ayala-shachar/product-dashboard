@@ -1,1 +1,10 @@
-<p>layout works!</p>
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <button pButton type="button" label="Home" icon="pi pi-home" routerLink="/products" class="toolbar-btn"></button>
+    <button pButton type="button" label="New Product" icon="pi pi-plus" routerLink="/products/create" class="toolbar-btn"></button>
+  </div>
+  <div class="p-toolbar-group-right">
+    <button pButton type="button" icon="pi pi-cog" label="Settings" class="toolbar-btn"></button>
+  </div>
+</p-toolbar>
+<router-outlet></router-outlet>
