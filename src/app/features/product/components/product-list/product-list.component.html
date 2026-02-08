@@ -1,0 +1,65 @@
+<div class="table-actions">
+  <form [formGroup]="searchForm" class="global-search">
+    <input pInputText type="text" formControlName="global" placeholder="Search all products..." />
+  </form>
+  <button pButton type="button" label="Reset Filters" icon="pi pi-refresh" (click)="clearFilters()"></button>
+
+</div>
+
+<p-table [value]="products" [paginator]="true" [rows]="pageSize" [first]="(page-1)*pageSize"
+  [totalRecords]="totalRecords" [lazy]="true" (onLazyLoad)="onPageChange($event)" [rowsPerPageOptions]="[5,10,20]">
+
+  <ng-template pTemplate="header">
+    <tr>
+      <th (click)="setSort('name')" pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+      <th (click)="setSort('category')" pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon>
+      </th>
+      <th (click)="setSort('price')" pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+      <th (click)="setSort('salePrice')" pSortableColumn="salePrice">Sale Price <p-sortIcon
+          field="salePrice"></p-sortIcon></th>
+      <th (click)="setSort('stock')" pSortableColumn="stock">Stock <p-sortIcon field="stock"></p-sortIcon></th>
+      <th (click)="setSort('currency')" pSortableColumn="currency">Currency <p-sortIcon field="currency"></p-sortIcon>
+      </th>
+    </tr>
+
+    <tr [formGroup]="filtersForm">
+      <th><input pInputText type="text" formControlName="name" placeholder="Filter by name" /></th>
+
+      <th>
+        <select pInputText formControlName="category">
+          <option value="">All categories</option>
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+      </th>
+
+      <th><input pInputText type="number" formControlName="price" placeholder="Min price" /></th>
+      <th><input pInputText type="number" formControlName="salePrice" placeholder="Min sale price" /></th>
+      <th><input pInputText type="number" formControlName="stock" placeholder="Min stock" /></th>
+
+
+      <th>
+        <select pInputText formControlName="currency">
+          <option value="">All</option>
+          <option *ngFor="let cur of currencies" [value]="cur">{{ cur }}</option>
+        </select>
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{ product.name }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.price | currency:product.currency }}</td>
+      <td>{{ product.salePrice ? (product.salePrice | currency:product.currency) : '-' }}</td>
+      <td>{{ product.stock }}</td>
+      <td>{{ product.currency }}</td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="7">No products found.</td>
+    </tr>
+  </ng-template>
+</p-table>

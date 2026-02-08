@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { Observable } from 'rxjs';
@@ -12,9 +12,51 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+ 
+ getProducts(
+  filters: any,
+  sort: { field: keyof Product; direction: 'asc' | 'desc' },
+  search: string,
+  page: number,
+  pageSize: number
+): Observable<HttpResponse<Product[]>> {
+
+  let params = new HttpParams()
+    .set('_page', page)
+    .set('_limit', pageSize);
+
+  if (sort?.field) {
+    params = params.set('_sort', sort.field).set('_order', sort.direction);
   }
+
+  if (filters.name) {
+    params = params.set('name_like', filters.name);
+  }
+  if (filters.category) {
+    params = params.set('category', filters.category);
+  }
+  if (filters.price != null) {
+    params = params.set('price_gte', filters.price);
+  }
+  if (filters.salePrice != null) {
+    params = params.set('salePrice_gte', filters.salePrice);
+  }
+  if (filters.stock != null) {
+    params = params.set('stock_gte', filters.stock);
+  }
+  
+  if (filters.currency) {
+    params = params.set('currency', filters.currency);
+  }
+
+  // 🔹 חיפוש גלובלי
+  if (search) {
+    params = params.set('q', search);
+  }
+
+  return this.http.get<Product[]>(this.apiUrl, { params, observe: 'response' });
+}
+
 
   getProductById(id: number): Observable<Product> {
     return this.http.get<Product>(`${this.apiUrl}/${id}`);

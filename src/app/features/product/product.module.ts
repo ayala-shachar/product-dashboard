@@ -4,6 +4,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { TableModule } from 'primeng/table';
+import { SkeletonModule } from 'primeng/skeleton';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
@@ -39,7 +41,13 @@ const routes: Routes = [
 
     CheckboxModule,
 InputTextareaModule,
-    FormsModule
+    FormsModule,
+
+
+    TableModule,
+    
+    SkeletonModule,
+  
   ]
 })
 export class ProductModule { }

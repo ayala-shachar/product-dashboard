@@ -1,0 +1,19 @@
+.table-actions {
+  display: flex;
+  align-items: center;   
+  gap: 1rem;            
+  margin: 1rem 0;        
+}
+
+.table-actions .global-search {
+  display: flex;          
+  flex: none;             
+  width: 200px;
+  margin: 0;
+}
+
+.table-actions .global-search input {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  box-sizing: border-box;
+}
