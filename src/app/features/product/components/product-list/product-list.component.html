@@ -35,7 +35,7 @@
       <th><input pInputText type="number" formControlName="price" placeholder="Min price" /></th>
       <th><input pInputText type="number" formControlName="salePrice" placeholder="Min sale price" /></th>
       <th><input pInputText type="number" formControlName="stock" placeholder="Min stock" /></th>
-
+      
 
       <th>
         <select pInputText formControlName="currency">
@@ -54,6 +54,10 @@
       <td>{{ product.salePrice ? (product.salePrice | currency:product.currency) : '-' }}</td>
       <td>{{ product.stock }}</td>
       <td>{{ product.currency }}</td>
+       <td>
+        <button pButton type="button" icon="pi pi-pencil" class="p-button-text"
+                (click)="editProduct(product.id)">Edit</button>
+      </td>
     </tr>
   </ng-template>
 

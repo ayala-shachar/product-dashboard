@@ -133,4 +133,9 @@ export class ProductListComponent implements OnInit {
     const queryParams: any = { ...filters, sortField: sort.field, sortDir: sort.direction, page, pageSize };
     this.router.navigate([], { relativeTo: this.route, queryParams, queryParamsHandling: 'merge' });
   }
+
+  editProduct(id: number) {
+    this.router.navigate(['/products/edit', id]);
+  }
+
 }

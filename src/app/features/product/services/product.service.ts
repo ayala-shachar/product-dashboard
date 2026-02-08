@@ -49,7 +49,6 @@ export class ProductService {
     params = params.set('currency', filters.currency);
   }
 
-  // 🔹 חיפוש גלובלי
   if (search) {
     params = params.set('q', search);
   }

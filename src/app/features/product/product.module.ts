@@ -38,16 +38,12 @@ const routes: Routes = [
     FieldsetModule,
     CardModule,
     InputTextModule,
-
     CheckboxModule,
-InputTextareaModule,
+    InputTextareaModule,
     FormsModule,
-
-
     TableModule,
-    
     SkeletonModule,
-  
+
   ]
 })
 export class ProductModule { }
