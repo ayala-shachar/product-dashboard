@@ -1,27 +1,86 @@
-# ProductDashboard
+# **Product Management Dashboard – Angular**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+A small Angular application for managing products in an e-commerce catalog.  
+**Focus:** clarity, structure, and everyday frontend decision-making.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## **Features**
 
-## Code scaffolding
+### **Product List**
+* **Search** across all products  
+* **Column-specific filters**  
+* **Sorting** by any column  
+* **Pagination** with selectable page size  
+* **Filters, sorting, and pagination** persisted in URL parameters  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### **Product Form**
+* **Create and edit products**  
+* **Reactive Forms** with validation:  
+  * Required fields  
+  * Minimum values for price and stock  
+* **Clear user feedback** for empty states  
 
-## Build
+### **Routing**
+* **Lazy-loaded routes** for:  
+  * `/products` – list  
+  * `/products/new` – create  
+  * `/products/edit/:id` – edit  
+* **Layout component** wraps pages consistently  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### **Data & API**
+* **ProductService** handles all HTTP communication  
+* **Backend** simulated using `json-server`  
+* **Strong typing** via TypeScript interfaces (`Product`, `ProductCategory`)  
 
-## Running unit tests
+### **Testing**
+* **Partial test coverage**:  
+  * Service tests  
+  * Form validation tests  
+  * Component behavior tests  
+* **Note:** Some tests are still in progress  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### **Architecture & Code Quality**
+* **Feature-based folder structure**  
+* **Clear separation** between UI, services, and data access  
+* **RxJS** used for reactive data handling (`BehaviorSubject`, `combineLatest`, `switchMap`)  
+* **Readable and maintainable code**, avoiding `any`  
+* **Lazy loading** implemented for feature modules  
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## **Setup & Usage**
 
-## Further help
+To get started with the application, follow these steps:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+# 1. Clone the repository and enter the project folder
+git clone <repo-url>
+cd product-dashboard
+
+# 2. Install dependencies
+npm install
+
+# 3. Start json-server (simulate backend)
+npm run json-server
+
+# 4. Start Angular application
+ng serve
+
+# 5. Open the application in your browser
+# Navigate to:
+http://localhost:4200
+
+
+---
+
+## **Notes**
+
+* **Filters, sorting, and pagination** are synced with the URL, preserving state on reload or when sharing links.  
+* Some **unit tests** are incomplete due to time constraints, but main form validations and service interactions are tested.  
+* **Future improvements** could include:  
+  * Optimistic updates  
+  * Caching  
+  * Light/Dark theme  
+  * Accessibility enhancements
+
