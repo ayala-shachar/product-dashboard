@@ -5,6 +5,10 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './core/components/layout/layout.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+import { ReactiveFormsModule } from '@angular/forms';
+
 const routes: Routes = [
   {
     path: '',                     
@@ -26,8 +30,11 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-     ButtonModule,  // לייבא את ה-ButtonModule
+     ButtonModule,  
     ToolbarModule, 
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

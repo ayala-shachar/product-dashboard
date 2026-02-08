@@ -1,0 +1,56 @@
+.field {
+    margin-bottom: 1.5rem;
+}
+
+
+.field label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.field input, .field textarea, .field p-dropdown {
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+    font-size: 1rem;
+}
+
+.p-button {
+    width: 100%;
+    max-width: 150px;
+    margin-top: 1rem;
+}
+
+#imageUrl {
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+input:focus, textarea:focus, p-dropdown:focus {
+    border-color: #007ad9;
+    box-shadow: 0 0 5px rgba(0, 122, 217, 0.5);
+}
+/* עיצוב עבור ה-legend של PrimeNG */
+::ng-deep p-fieldset .p-fieldset-legend {
+  background-color: #bed8ec !important;  
+  color: white !important;  
+  padding: 10px 15px !important;  
+  font-weight: bold !important;  
+  border-radius: 5px !important;  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;  
+}
+.invalid input,
+.invalid textarea,
+.invalid p-inputnumber {
+  border: 1px solid red !important;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

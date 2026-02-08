@@ -1,1 +1,118 @@
-<p>product-form works!</p>
+<p-card>
+    <h2>{{ isEditMode ? 'Edit Product' : 'Add New Product' }}</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+        <p-fieldset legend="Product Information">
+            <div class="product-info-row">
+                <div class="field"
+                    [class.invalid]="productForm.controls['name'].invalid && productForm.controls['name'].touched">
+                    <label for="name">Product Name</label>
+                    <input pInputText type="text" formControlName="name" #nameInput id="name" />
+                    <div *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched"
+                        class="error">
+                        <div *ngIf="productForm.controls['name'].hasError('required')">Product Name is required.</div>
+                    </div>
+                </div>
+
+                <div class="field"
+                    [class.invalid]="productForm.controls['sku'].invalid && productForm.controls['sku'].touched">
+                    <label for="sku">SKU</label>
+                    <input pInputText type="text" formControlName="sku" #skuInput id="sku" placeholder="Enter SKU" />
+                    <div *ngIf="productForm.controls['sku'].invalid && productForm.controls['sku'].touched"
+                        class="error">
+                        <div *ngIf="productForm.controls['sku'].hasError('required')">SKU is required.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field"
+                [class.invalid]="productForm.controls['description'].invalid && productForm.controls['description'].touched">
+                <label for="description">Description</label>
+                <textarea pInputTextarea formControlName="description" #descriptionInput id="description" rows="5"
+                    placeholder="Enter product description"></textarea>
+                <div *ngIf="productForm.controls['description'].invalid && productForm.controls['description'].touched"
+                    class="error">
+                    <div *ngIf="productForm.controls['description'].hasError('required')">Description is required.</div>
+                </div>
+            </div>
+
+            <div class="field"
+                [class.invalid]="productForm.controls['category'].invalid && productForm.controls['category'].touched">
+                <label for="category">Category</label>
+                <p-dropdown formControlName="category" [options]="productCategories" optionLabel="label"
+                    optionValue="value" placeholder="Select Category">
+                </p-dropdown>
+                <div *ngIf="productForm.controls['category'].invalid && productForm.controls['category'].touched"
+                    class="error">
+                    <div *ngIf="productForm.controls['category'].hasError('required')">Category is required.</div>
+                </div>
+            </div>
+        </p-fieldset>
+
+        <p-fieldset legend="Pricing">
+            <div class="pricing-row">
+                <div class="field"
+                    [class.invalid]="productForm.controls['price'].invalid && productForm.controls['price'].touched">
+                    <label for="price">Price</label>
+                    <p-inputNumber formControlName="price" id="price" mode="decimal" [min]="0"></p-inputNumber>
+                    <div *ngIf="productForm.controls['price'].invalid && productForm.controls['price'].touched"
+                        class="error">
+                        <div *ngIf="productForm.controls['price'].hasError('required')">Price is required.</div>
+                        <div *ngIf="productForm.controls['price'].hasError('min')">Price must be greater than 0.</div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="salePrice">Sale Price</label>
+                    <p-inputNumber formControlName="salePrice" id="salePrice" mode="decimal" [min]="0"></p-inputNumber>
+                </div>
+
+                <div class="field"
+                    [class.invalid]="productForm.controls['currency'].invalid && productForm.controls['currency'].touched">
+                    <label for="currency">Currency</label>
+                    <p-dropdown formControlName="currency" [options]="['USD', 'ILS', 'EUR']" id="currency"
+                        placeholder="Select Currency"></p-dropdown>
+                    <div *ngIf="productForm.controls['currency'].invalid && productForm.controls['currency'].touched"
+                        class="error">
+                        <div *ngIf="productForm.controls['currency'].hasError('required')">Currency is required.</div>
+                    </div>
+                </div>
+            </div>
+        </p-fieldset>
+
+        <p-fieldset legend="Inventory">
+            <div class="field"
+                [class.invalid]="productForm.controls['stock'].invalid && productForm.controls['stock'].touched">
+                <label for="stock">Stock</label>
+                <p-inputNumber formControlName="stock" id="stock" [min]="0"></p-inputNumber>
+                <div *ngIf="productForm.controls['stock'].invalid && productForm.controls['stock'].touched"
+                    class="error">
+                    <div *ngIf="productForm.controls['stock'].hasError('required')">Stock is required.</div>
+                    <div *ngIf="productForm.controls['stock'].hasError('min')">Stock cannot be less than 0.</div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="minStockAlert">Min Stock Alert</label>
+                <p-inputNumber formControlName="minStockAlert" id="minStockAlert" [min]="0"></p-inputNumber>
+            </div>
+
+            <div class="field">
+                <label for="isActive">Active</label>
+
+                <p-checkbox formControlName="isActive" id="isActive" label="Active" [binary]="true"></p-checkbox>
+            </div>
+        </p-fieldset>
+
+        <p-fieldset legend="Image">
+            <div class="field">
+                <label for="imageUrl">Image URL</label>
+                <input pInputText type="text" formControlName="imageUrl" #imageUrlInput id="imageUrl"
+                    placeholder="Enter Image URL" />
+            </div>
+        </p-fieldset>
+
+        <p-button type="submit" [label]="isEditMode ? 'Update' : 'Create'" [disabled]="productForm.invalid"
+            class="p-mt-2"></p-button>
+    </form>
+</p-card>

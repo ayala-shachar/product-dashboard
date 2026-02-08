@@ -6,7 +6,11 @@
       "description": "High-performance laptop with a fast processor.",
       "sku": "LP-12345",
       "category": "electronics",
-      "tags": ["electronics", "laptop", "computer"],
+      "tags": [
+        "electronics",
+        "laptop",
+        "computer"
+      ],
       "price": 1200,
       "salePrice": 1000,
       "currency": "USD",
@@ -14,7 +18,6 @@
       "isActive": true,
       "minStockAlert": 10,
       "imageUrl": "https://example.com/images/laptop.jpg",
-      
       "createdAt": "2023-01-01T10:00:00Z",
       "updatedAt": "2023-01-15T14:00:00Z"
     },
@@ -24,7 +27,11 @@
       "description": "Comfortable cotton t-shirt.",
       "sku": "TS-98765",
       "category": "clothing",
-      "tags": ["clothing", "t-shirt", "fashion"],
+      "tags": [
+        "clothing",
+        "t-shirt",
+        "fashion"
+      ],
       "price": 20,
       "salePrice": 15,
       "currency": "ILS",
@@ -32,7 +39,6 @@
       "isActive": true,
       "minStockAlert": 20,
       "imageUrl": "https://example.com/images/t-shirt.jpg",
-      
       "createdAt": "2023-02-01T08:30:00Z",
       "updatedAt": "2023-02-10T09:00:00Z"
     },
@@ -42,7 +48,11 @@
       "description": "Stylish wooden dining table for 6 people.",
       "sku": "DT-56789",
       "category": "home",
-      "tags": ["home", "furniture", "dining"],
+      "tags": [
+        "home",
+        "furniture",
+        "dining"
+      ],
       "price": 300,
       "salePrice": 250,
       "currency": "EUR",
@@ -50,7 +60,6 @@
       "isActive": true,
       "minStockAlert": 5,
       "imageUrl": "https://example.com/images/dining-table.jpg",
-      
       "createdAt": "2023-03-05T12:00:00Z",
       "updatedAt": "2023-03-10T16:30:00Z"
     },
@@ -60,7 +69,11 @@
       "description": "The first book in the Harry Potter series.",
       "sku": "HPB-11223",
       "category": "books",
-      "tags": ["books", "fantasy", "harry potter"],
+      "tags": [
+        "books",
+        "fantasy",
+        "harry potter"
+      ],
       "price": 15,
       "salePrice": 12,
       "currency": "USD",
@@ -68,12 +81,37 @@
       "isActive": true,
       "minStockAlert": 50,
       "imageUrl": "https://example.com/images/harry-potter-book.jpg",
-      "galleryUrls": [
-        "https://example.com/images/harry-potter-book-1.jpg",
-        "https://example.com/images/harry-potter-book-2.jpg"
-      ],
       "createdAt": "2023-04-01T14:00:00Z",
       "updatedAt": "2023-04-03T15:00:00Z"
+    },
+    {
+      "name": "er",
+      "description": "dfgggggg",
+      "sku": "er",
+      "category": "home",
+      "tags": [],
+      "price": 1,
+      "salePrice": 2,
+      "currency": "ILS",
+      "stock": 0,
+      "isActive": true,
+      "minStockAlert": "",
+      "imageUrl": "",
+      "id": 5
+    },
+    {
+      "name": "phone",
+      "description": "fdfdf",
+      "sku": "fdee-98",
+      "category": "Electronics",
+      "price": 2,
+      "salePrice": null,
+      "currency": "ILS",
+      "stock": 3,
+      "isActive": false,
+      "minStockAlert": 2,
+      "imageUrl": "",
+      "id": 6
     }
   ]
 }
