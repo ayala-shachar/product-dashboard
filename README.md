@@ -55,7 +55,7 @@ To get started with the application, follow these steps:
 
 ```bash
 # 1. Clone the repository and enter the project folder
-git clone <repo-url>
+git clone https://github.com/ayala-shachar/product-dashboard.git
 cd product-dashboard
 
 # 2. Install dependencies
